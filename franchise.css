@@ -1,0 +1,268 @@
+/* Стили для страницы "Франшиза" */
+.franchise-main {
+    min-height: calc(100vh - 150px);
+    padding: 50px 0;
+    background-color: var(--white);
+}
+
+.franchise-alt {
+    background-color: var(--light-gray);
+    padding: 50px 0;
+    min-height: 500px;
+}
+
+.franchise-alt .left-content {
+    padding: 50px 0;
+}
+
+.franchise-alt .label {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.franchise-alt h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.franchise-alt h2 .highlight {
+    font-size: 50px;
+    display: block;
+}
+
+.outline-button {
+    background-color: transparent;
+    border: 1px solid var(--black);
+    color: var(--black);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.outline-button:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* Плавающие чашки */
+.floating-cups {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+.floating-cups .coffee-cup {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    border-radius: 50% 50% 10% 10% / 30% 30% 70% 70%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.floating-cups .coffee-cup::after {
+    content: "СОВА КОФЕ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.cup-1 {
+    top: 50px;
+    left: 50px;
+    transform: rotate(-15deg);
+    background-image: url('img/Латте_2045х1147.jpg');
+}
+
+.cup-2 {
+    top: 150px;
+    left: 200px;
+    transform: rotate(10deg);
+    background-image: url('img/Кофе-тоник_2045х1147-1.jpg');
+}
+
+.cup-3 {
+    top: 100px;
+    left: 350px;
+    transform: rotate(-5deg);
+    background-image: url('img/Бамбл_2045х1147-1.jpg');
+}
+
+.coffee-beans {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--brown) 10%, transparent 10%),
+                      radial-gradient(var(--brown) 10%, transparent 10%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    opacity: 0.3;
+}
+
+/* Реалистичный стаканчик кофе на главной странице франшизы */
+.coffee-cup {
+    width: 300px;
+    height: 400px;
+    background-image: url('img/Латте_2045х1147.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50% 50% 10% 10% / 30% 30% 70% 70%;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.coffee-cup:hover {
+    transform: translateY(-10px);
+}
+
+.cup-logo {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    color: var(--white);
+    font-weight: 700;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+    font-size: 24px;
+}
+
+/* Стили для формы франшизы */
+.franchise-form {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.franchise-form h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.form-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.franchise-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.franchise-form .form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+}
+
+.franchise-form .form-control:focus {
+    border-color: var(--lime-green);
+}
+
+.franchise-form .checkbox-container {
+    color: var(--white);
+}
+
+.franchise-form .checkmark {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.franchise-form .checkbox-container input:checked ~ .checkmark {
+    background-color: var(--lime-green);
+    border-color: var(--lime-green);
+}
+
+.franchise-submit {
+    background-color: var(--lime-green);
+    color: var(--black);
+    padding: 15px 30px;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.franchise-submit:hover {
+    background-color: #E0FF4F;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .franchise-alt h2 {
+        font-size: 30px;
+    }
+    
+    .franchise-alt h2 .highlight {
+        font-size: 40px;
+    }
+    
+    .floating-cups {
+        height: 300px;
+    }
+    
+    .floating-cups .coffee-cup {
+        width: 100px;
+        height: 150px;
+    }
+    
+    .cup-1 {
+        left: 20px;
+    }
+    
+    .cup-2 {
+        left: 130px;
+    }
+    
+    .cup-3 {
+        left: 240px;
+    }
+    
+    .franchise-form h2 {
+        font-size: 28px;
+    }
+    
+    .franchise-form-container {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+} 

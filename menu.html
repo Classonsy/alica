@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СОВА - Меню кофейни</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="coffee-bean-icon"></div>
+                <h1>СОВА</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="menu.html">МЕНЮ КОФЕЙНИ</a></li>
+                    <li><a href="our-coffee-shops.html">НАШИ КОФЕЙНИ</a></li>
+                    <li><a href="contacts.html">КОНТАКТЫ</a></li>
+                    <li><a href="news.html">НОВОСТИ</a></li>
+                    <li><a href="franchise.html">ФРАНШИЗА</a></li>
+                    <li><a href="work-with-us.html">ВАКАНСИИ</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#" class="icon cart"><span class="cart-counter"></span></a>
+                <a href="#" class="icon user"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu-main">
+        <div class="container">
+            <h2>МЕНЮ КОФЕЙНИ</h2>
+            
+            <div class="filter-tabs">
+                <button class="filter-tab active">ВСЕ</button>
+                <button class="filter-tab">ЛЕТНЕЕ</button>
+                <button class="filter-tab">КЛАССИКА</button>
+                <button class="filter-tab">АВТОРСКИЕ</button>
+                <button class="filter-tab">РАФ</button>
+                <button class="filter-tab">ФРЕШИ</button>
+                <button class="filter-tab">ДЛЯ ДОМА</button>
+            </div>
+            
+            <div class="menu-grid">
+                <div class="menu-item" data-product="coffee-tonic" data-category="ЛЕТНЕЕ" data-description="Освежающий напиток на основе кофе и тоника с нотками цитрусовых. Идеален для жаркого дня." data-calories="31.6" data-protein="0" data-fat="0" data-carbs="8.3">
+                    <div class="item-image coffee-tonic" data-image="img/Кофе-тоник_2045х1147-1.jpg" style="background-image: url('img/Кофе-тоник_2045х1147-1.jpg');"></div>
+                    <div class="item-tag new">NEW</div>
+                    <h3>Кофе тоник</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">350мл</span>
+                            <span class="price">270₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">550мл</span>
+                            <span class="price">370₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="taiyo-coffee" data-category="АВТОРСКИЕ" data-description="Необычный кофейный напиток с азиатскими нотками. Сочетание эспрессо и экзотических специй." data-calories="45.2" data-protein="1.2" data-fat="2.5" data-carbs="5.8">
+                    <div class="item-image taiyo-coffee" data-image="img/Тай-кофе_2045х1147-1.jpg" style="background-image: url('img/Тай-кофе_2045х1147-1.jpg');"></div>
+                    <div class="item-tag new">NEW</div>
+                    <h3>Тайё кофе</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">350мл</span>
+                            <span class="price">270₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">550мл</span>
+                            <span class="price">370₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="bumble" data-category="АВТОРСКИЕ" data-description="Яркий авторский напиток с медовыми нотками и цитрусовым послевкусием. Согревает и бодрит." data-calories="42.8" data-protein="0.5" data-fat="1.8" data-carbs="7.2">
+                    <div class="item-image bumble" data-image="img/Бамбл_2045х1147-1.jpg" style="background-image: url('img/Бамбл_2045х1147-1.jpg');"></div>
+                    <div class="item-tag new">NEW</div>
+                    <h3>Бамбл</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">350мл</span>
+                            <span class="price">270₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">550мл</span>
+                            <span class="price">370₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="sova-cola" data-category="ЛЕТНЕЕ" data-description="Наша фирменная кола с добавлением натуральных ингредиентов. Освежающий напиток без кофеина." data-calories="38.5" data-protein="0" data-fat="0" data-carbs="9.5">
+                    <div class="item-image pravda-cola" data-image="img/Правда-кола_2045х1147.jpg" style="background-image: url('img/Правда-кола_2045х1147.jpg');"></div>
+                    <div class="item-tag best">BEST</div>
+                    <h3>СОВА кола</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="frappe" data-category="КЛАССИКА" data-description="Классический охлаждённый кофейный напиток с молоком и льдом. Идеален для жаркого дня." data-calories="35.6" data-protein="2.3" data-fat="1.5" data-carbs="4.2">
+                    <div class="item-image frappe" data-image="img/Латте_2045х1147.jpg" style="background-image: url('img/Латте_2045х1147.jpg');"></div>
+                    <div class="item-tag best">BEST</div>
+                    <h3>Фраппе</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="strawberry-fresh" data-category="ФРЕШИ" data-description="Свежевыжатый клубничный сок. Натуральный, без добавления сахара и консервантов." data-calories="28.4" data-protein="0.8" data-fat="0.2" data-carbs="6.5">
+                    <div class="item-image strawberry-fresh" data-image="img/Лимонад-тропический-ройбуш_2045х1147.jpg" style="background-image: url('img/Лимонад-тропический-ройбуш_2045х1147.jpg');"></div>
+                    <div class="item-tag new">NEW</div>
+                    <h3>Клубничный фреш</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="green-fresh" data-category="ФРЕШИ" data-description="Смесь свежевыжатых соков из зелёных фруктов и овощей. Заряд витаминов и энергии." data-calories="25.2" data-protein="1.2" data-fat="0.3" data-carbs="5.8">
+                    <div class="item-image green-fresh" data-image="img/Лимонад-тропический-ройбуш_2045х1147.jpg" style="background-image: url('img/Лимонад-тропический-ройбуш_2045х1147.jpg');"></div>
+                    <div class="item-tag new">NEW</div>
+                    <h3>Зелёный фреш</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="americano" data-category="КЛАССИКА" data-description="Классический эспрессо с добавлением горячей воды. Крепкий кофе для настоящих ценителей." data-calories="10.5" data-protein="0.2" data-fat="0.1" data-carbs="2.1">
+                    <div class="item-image" style="background-color: #3C2A1D;" data-image="img/Латте_2045х1147.jpg">
+                    </div>
+                    <h3>Американо</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">250мл</span>
+                            <span class="price">170₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">350мл</span>
+                            <span class="price">220₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">270₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">550мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-product="cappuccino" data-category="КЛАССИКА" data-description="Эспрессо с добавлением взбитого молока. Нежный вкус с кофейным ароматом." data-calories="42.5" data-protein="3.5" data-fat="4.2" data-carbs="5.1">
+                    <div class="item-image" style="background-color: #D8C8B8;" data-image="img/Латте_2045х1147.jpg">
+                    </div>
+                    <h3>Капучино</h3>
+                    <div class="item-sizes">
+                        <div class="size">
+                            <span class="volume">250мл</span>
+                            <span class="price">170₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">350мл</span>
+                            <span class="price">220₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">450мл</span>
+                            <span class="price">270₽</span>
+                        </div>
+                        <div class="size">
+                            <span class="volume">550мл</span>
+                            <span class="price">320₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Модальные окна для товаров -->
+    <div class="product-modal" id="coffee-tonic-modal">
+        <div class="modal-content">
+            <div class="modal-close"></div>
+            <div class="modal-product-image" style="background-image: url('img/Кофе-тоник_2045х1147-1.jpg');"></div>
+            <div class="modal-product-info">
+                <h3 class="modal-product-name">Кофе тоник</h3>
+                <p class="modal-product-description">Освежающий напиток на основе кофе и тоника с нотками цитрусовых. Идеален для жаркого дня.</p>
+                
+                <div class="modal-nutrition">
+                    <h4>Пищевая ценность (на 100 мл):</h4>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item">
+                            <span class="nutrition-name">Калории</span>
+                            <span class="nutrition-value">31.6 ккал</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-name">Белки</span>
+                            <span class="nutrition-value">0 г</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-name">Жиры</span>
+                            <span class="nutrition-value">0 г</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-name">Углеводы</span>
+                            <span class="nutrition-value">8.3 г</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-sizes">
+                    <h4>Размеры и цены:</h4>
+                    <div class="size">
+                        <span class="volume">350 мл</span>
+                        <span class="price">270 ₽</span>
+                    </div>
+                    <div class="size">
+                        <span class="volume">450 мл</span>
+                        <span class="price">320 ₽</span>
+                    </div>
+                    <div class="size">
+                        <span class="volume">550 мл</span>
+                        <span class="price">370 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" value="1" min="1" max="99">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" data-product-id="1" data-size="350">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Здесь добавьте модальные окна для других товаров по аналогии с coffee-tonic-modal -->
+    
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-close"></div>
+            <h2>Корзина</h2>
+            
+            <div class="cart-items-container" id="cart-items">
+                <!-- Здесь будут отображаться товары в корзине -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span id="cart-total-price">0 ₽</span>
+                </div>
+                <button id="checkout-button" class="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно авторизации -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content auth-modal-content">
+            <div class="modal-close"></div>
+            
+            <!-- Форма входа -->
+            <div id="login-form-container">
+                <h2>Вход в аккаунт</h2>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Пароль</label>
+                        <input type="password" id="login-password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="error-message" id="login-error"></div>
+                    
+                    <button type="submit" class="form-submit">Войти</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p>Нет аккаунта? <a href="#" class="switch-to-register">Зарегистрироваться</a></p>
+                </div>
+            </div>
+            
+            <!-- Форма регистрации -->
+            <div id="register-form-container" style="display: none;">
+                <h2>Регистрация</h2>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-email">Email*</label>
+                        <input type="email" id="register-email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Пароль*</label>
+                        <input type="password" id="register-password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">Подтверждение пароля*</label>
+                        <input type="password" id="register-confirm-password" name="confirm-password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-first-name">Имя</label>
+                        <input type="text" id="register-first-name" name="first-name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-last-name">Фамилия</label>
+                        <input type="text" id="register-last-name" name="last-name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-phone">Телефон</label>
+                        <input type="tel" id="register-phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="error-message" id="register-error"></div>
+                    
+                    <button type="submit" class="form-submit">Зарегистрироваться</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p>Уже есть аккаунт? <a href="#" class="switch-to-login">Войти</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-links">
+                <a href="our-coffee-shops.html">Кофейни</a>
+                <a href="contacts.html">Контакты</a>
+            </div>
+            <div class="footer-contact">
+                8 800 555 19 66
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html> 

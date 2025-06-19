@@ -1,0 +1,167 @@
+/* Стили для страницы "Меню кофейни" */
+.menu-main {
+    background-color: var(--white);
+    padding: 50px 0;
+    min-height: calc(100vh - 150px);
+}
+
+.menu-main h2 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-tab.active {
+    background-color: var(--light-green);
+    border-radius: 20px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+}
+
+.menu-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    background-color: var(--white);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.item-image {
+    height: 200px;
+    background-color: var(--blue);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3));
+}
+
+.coffee-tonic {
+    background-color: #F5A623;
+}
+
+.taiyo-coffee {
+    background-color: var(--beige);
+}
+
+.bumble {
+    background-color: #FF9500;
+}
+
+.pravda-cola {
+    background-color: #333;
+}
+
+.frappe {
+    background-color: #D8C8B8;
+}
+
+.strawberry-fresh {
+    background-color: #FF3B30;
+}
+
+.green-fresh {
+    background-color: var(--green);
+}
+
+.item-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.item-tag.new {
+    background-color: var(--light-green);
+    color: var(--black);
+}
+
+.item-tag.best {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+.menu-item h3 {
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.item-sizes {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 15px;
+}
+
+.size {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.volume {
+    color: #666;
+}
+
+.price {
+    font-weight: 700;
+}
+
+/* Фон для меню */
+.menu-main {
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%2387CEEB"/></svg>');
+    background-size: cover;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .menu-main h2 {
+        font-size: 36px;
+    }
+    
+    .filter-tab {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+} 

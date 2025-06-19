@@ -1,0 +1,122 @@
+/* Стили для страницы "Статистика" */
+.statistics-main {
+    min-height: calc(100vh - 150px);
+}
+
+.split-container {
+    display: flex;
+    height: calc(100vh - 150px);
+}
+
+.left-section {
+    width: 50%;
+    background-color: var(--white);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-section h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    font-size: 18px;
+    max-width: 400px;
+}
+
+.yellow-splash {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: var(--yellow-green);
+    border-radius: 50%;
+    bottom: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+.right-section {
+    width: 50%;
+    background-color: var(--dark-gray);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.coffee-cup {
+    width: 400px;
+    height: 500px;
+    background-color: var(--dark-gray);
+    border-radius: 50% 50% 10% 10% / 30% 30% 70% 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 2;
+}
+
+.stat-item {
+    color: var(--white);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 16px;
+}
+
+.coffee-beans {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--brown) 10%, transparent 10%),
+                      radial-gradient(var(--brown) 10%, transparent 10%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .left-section, .right-section {
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .left-section h2 {
+        font-size: 36px;
+    }
+    
+    .coffee-cup {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+    }
+    
+    .stat-label {
+        font-size: 14px;
+    }
+} 

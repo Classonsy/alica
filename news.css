@@ -1,0 +1,120 @@
+/* Стили для страницы "Новости" */
+.news-main {
+    background-color: var(--white);
+    padding: 50px 0;
+    min-height: calc(100vh - 150px);
+}
+
+.news-main h2 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.news-card {
+    position: relative;
+    border-radius: 10px;
+    height: 250px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card .date {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.news-card .discount {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--pink);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Фоны для карточек */
+.beach {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="50" fill="%2387CEEB"/><rect y="50" width="100" height="50" fill="%23A3D39C"/></svg>');
+    background-size: cover;
+    color: var(--white);
+}
+
+.cherry-blossom, .cherry-blossom-2, .cherry-blossom-3 {
+    background-color: var(--pink);
+    color: var(--black);
+}
+
+.cosmic {
+    background: linear-gradient(135deg, var(--pink), #A29BFE, #7EC8E3);
+    color: var(--black);
+}
+
+.black-cups {
+    background: repeating-linear-gradient(45deg, var(--black), var(--black) 10px, #333 10px, #333 20px);
+    color: var(--white);
+}
+
+.green-leaves {
+    background-color: var(--light-green);
+    color: var(--black);
+}
+
+.beige-gradient {
+    background: linear-gradient(135deg, var(--beige), #E6D2B5);
+    color: var(--black);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .news-main h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+} 

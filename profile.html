@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СОВА - Профиль</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для страницы профиля */
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #666;
+            margin-right: 20px;
+        }
+        
+        .profile-info h1 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+        
+        .profile-info p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .profile-tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 600;
+        }
+        
+        .profile-tab.active {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Стили для формы профиля */
+        .profile-form {
+            max-width: 500px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .btn-save {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .btn-save:hover {
+            background-color: #45a049;
+        }
+        
+        /* Стили для истории заказов */
+        .order-list {
+            margin-bottom: 30px;
+        }
+        
+        .order-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        
+        .order-number {
+            font-weight: 600;
+        }
+        
+        .order-date {
+            color: #666;
+        }
+        
+        .order-status {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .order-status.completed {
+            background-color: #e8f5e9;
+            color: #4CAF50;
+        }
+        
+        .order-status.processing {
+            background-color: #fff8e1;
+            color: #ffa000;
+        }
+        
+        .order-details {
+            padding: 15px;
+            display: none;
+        }
+        
+        .order-details.show {
+            display: block;
+        }
+        
+        .order-products {
+            margin-bottom: 15px;
+        }
+        
+        .order-product {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-product-name {
+            flex: 1;
+        }
+        
+        .order-product-size {
+            width: 80px;
+            color: #666;
+        }
+        
+        .order-product-quantity {
+            width: 80px;
+            text-align: center;
+        }
+        
+        .order-product-price {
+            width: 100px;
+            text-align: right;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: flex-end;
+            font-weight: 600;
+            padding-top: 10px;
+        }
+        
+        /* Стили для кнопки выхода */
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Стили для сообщения о необходимости авторизации */
+        .auth-required {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .auth-required h2 {
+            margin-bottom: 20px;
+        }
+        
+        .auth-required p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .auth-required button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .auth-required button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="coffee-bean-icon"></div>
+                <h1>СОВА</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="menu.html">МЕНЮ КОФЕЙНИ</a></li>
+                    <li><a href="our-coffee-shops.html">НАШИ КОФЕЙНИ</a></li>
+                    <li><a href="contacts.html">КОНТАКТЫ</a></li>
+                    <li><a href="news.html">НОВОСТИ</a></li>
+                    <li><a href="franchise.html">ФРАНШИЗА</a></li>
+                    <li><a href="work-with-us.html">ВАКАНСИИ</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#" class="icon paper-plane"></a>
+                <a href="#" class="icon cart"><span class="cart-counter"></span></a>
+                <a href="#" class="icon user"></a>
+                <a href="#" class="icon vk"></a>
+                <a href="#" class="icon menu"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="profile-container">
+            <!-- Контент для авторизованных пользователей -->
+            <div id="profile-content" style="display: none;">
+                <div class="profile-header">
+                    <div class="profile-avatar" id="profile-avatar">A</div>
+                    <div class="profile-info">
+                        <h1 id="profile-name">Имя Фамилия</h1>
+                        <p id="profile-email">email@example.com</p>
+                    </div>
+                </div>
+                
+                <div class="profile-tabs">
+                    <div class="profile-tab active" data-tab="personal-info">Личная информация</div>
+                    <div class="profile-tab" data-tab="orders">История заказов</div>
+                    <div class="profile-tab" data-tab="password">Сменить пароль</div>
+                </div>
+                
+                <!-- Вкладка с личной информацией -->
+                <div class="tab-content active" id="personal-info">
+                    <form class="profile-form" id="profile-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="first-name">Имя</label>
+                            <input type="text" id="first-name" name="first-name" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name">Фамилия</label>
+                            <input type="text" id="last-name" name="last-name" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        
+                        <div class="error-message" id="profile-error"></div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Вкладка с историей заказов -->
+                <div class="tab-content" id="orders">
+                    <div class="order-list" id="order-list">
+                        <!-- Заказы будут добавлены через JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Вкладка со сменой пароля -->
+                <div class="tab-content" id="password">
+                    <form class="profile-form" id="password-form">
+                        <div class="form-group">
+                            <label for="current-password">Текущий пароль</label>
+                            <input type="password" id="current-password" name="current-password" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-password">Новый пароль</label>
+                            <input type="password" id="new-password" name="new-password" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">Подтверждение пароля</label>
+                            <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
+                        </div>
+                        
+                        <div class="error-message" id="password-error"></div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <button id="logout-button" class="logout-button">Выйти из аккаунта</button>
+            </div>
+            
+            <!-- Сообщение для неавторизованных пользователей -->
+            <div id="auth-required" class="auth-required">
+                <h2>Требуется авторизация</h2>
+                <p>Для доступа к профилю необходимо войти в аккаунт</p>
+                <button id="login-button">Войти</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-close"></div>
+            <h2>Корзина</h2>
+            
+            <div class="cart-items-container" id="cart-items">
+                <!-- Здесь будут отображаться товары в корзине -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span id="cart-total-price">0 ₽</span>
+                </div>
+                <button id="checkout-button" class="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно авторизации -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content auth-modal-content">
+            <div class="modal-close"></div>
+            
+            <!-- Форма входа -->
+            <div id="login-form-container">
+                <h2>Вход в аккаунт</h2>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Пароль</label>
+                        <input type="password" id="login-password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="error-message" id="login-error"></div>
+                    
+                    <button type="submit" class="form-submit">Войти</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p>Нет аккаунта? <a href="#" class="switch-to-register">Зарегистрироваться</a></p>
+                </div>
+            </div>
+            
+            <!-- Форма регистрации -->
+            <div id="register-form-container" style="display: none;">
+                <h2>Регистрация</h2>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-email">Email*</label>
+                        <input type="email" id="register-email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Пароль*</label>
+                        <input type="password" id="register-password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">Подтверждение пароля*</label>
+                        <input type="password" id="register-confirm-password" name="confirm-password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-first-name">Имя</label>
+                        <input type="text" id="register-first-name" name="first-name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-last-name">Фамилия</label>
+                        <input type="text" id="register-last-name" name="last-name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-phone">Телефон</label>
+                        <input type="tel" id="register-phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="error-message" id="register-error"></div>
+                    
+                    <button type="submit" class="form-submit">Зарегистрироваться</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p>Уже есть аккаунт? <a href="#" class="switch-to-login">Войти</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-links">
+                <a href="our-coffee-shops.html">Кофейни</a>
+                <a href="contacts.html">Контакты</a>
+            </div>
+            <div class="footer-contact">
+                8 800 555 19 66
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем авторизацию
+            const isAuthenticated = window.authManager && window.authManager.isAuthenticated();
+            
+            // Показываем соответствующий контент
+            document.getElementById('profile-content').style.display = isAuthenticated ? 'block' : 'none';
+            document.getElementById('auth-required').style.display = isAuthenticated ? 'none' : 'block';
+            
+            // Если пользователь авторизован, загружаем данные профиля
+            if (isAuthenticated) {
+                loadProfileData();
+                loadOrderHistory();
+            }
+            
+            // Обработчик клика по кнопке входа для неавторизованных пользователей
+            document.getElementById('login-button').addEventListener('click', function() {
+                if (window.authManager) {
+                    window.authManager.openAuthModal('login');
+                }
+            });
+            
+            // Обработчики для вкладок профиля
+            const tabs = document.querySelectorAll('.profile-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Убираем активный класс со всех вкладок
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Добавляем активный класс текущей вкладке
+                    this.classList.add('active');
+                    
+                    // Скрываем все контенты вкладок
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Показываем контент выбранной вкладки
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Обработчик отправки формы профиля
+            document.getElementById('profile-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                updateProfile();
+            });
+            
+            // Обработчик отправки формы смены пароля
+            document.getElementById('password-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                changePassword();
+            });
+        });
+        
+        // Загрузка данных профиля
+        async function loadProfileData() {
+            if (!window.authManager || !window.authManager.isAuthenticated()) {
+                return;
+            }
+            
+            try {
+                const token = localStorage.getItem('token');
+                
+                const response = await fetch('/api/profile', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const user = await response.json();
+                    
+                    // Заполняем форму профиля
+                    document.getElementById('email').value = user.email || '';
+                    document.getElementById('first-name').value = user.firstName || '';
+                    document.getElementById('last-name').value = user.lastName || '';
+                    document.getElementById('phone').value = user.phone || '';
+                    
+                    // Обновляем заголовок профиля
+                    document.getElementById('profile-name').textContent = `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Пользователь';
+                    document.getElementById('profile-email').textContent = user.email || '';
+                    
+                    // Обновляем аватар
+                    const avatar = document.getElementById('profile-avatar');
+                    if (user.firstName) {
+                        avatar.textContent = user.firstName.charAt(0).toUpperCase();
+                    } else {
+                        avatar.textContent = 'A';
+                    }
+                } else {
+                    console.error('Ошибка загрузки данных профиля:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки данных профиля:', error);
+            }
+        }
+        
+        // Обновление профиля
+        async function updateProfile() {
+            if (!window.authManager || !window.authManager.isAuthenticated()) {
+                return;
+            }
+            
+            try {
+                const token = localStorage.getItem('token');
+                const firstName = document.getElementById('first-name').value;
+                const lastName = document.getElementById('last-name').value;
+                const phone = document.getElementById('phone').value;
+                
+                const response = await fetch('/api/profile/update', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        firstName: firstName,
+                        lastName: lastName,
+                        phone: phone
+                    })
+                });
+                
+                if (response.ok) {
+                    // Обновляем данные в профиле
+                    loadProfileData();
+                    
+                    // Показываем уведомление об успешном обновлении
+                    if (window.authManager) {
+                        window.authManager.showNotification('Профиль успешно обновлен');
+                    }
+                } else {
+                    const errorData = await response.json();
+                    const errorMessage = document.getElementById('profile-error');
+                    errorMessage.textContent = errorData.message || 'Ошибка обновления профиля';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Ошибка обновления профиля:', error);
+                const errorMessage = document.getElementById('profile-error');
+                errorMessage.textContent = 'Ошибка обновления профиля. Пожалуйста, попробуйте позже';
+                errorMessage.style.display = 'block';
+            }
+        }
+        
+        // Смена пароля
+        async function changePassword() {
+            if (!window.authManager || !window.authManager.isAuthenticated()) {
+                return;
+            }
+            
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('password-error');
+            
+            // Проверяем совпадение паролей
+            if (newPassword !== confirmPassword) {
+                errorMessage.textContent = 'Пароли не совпадают';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            try {
+                const token = localStorage.getItem('token');
+                
+                const response = await fetch('/api/profile/change-password', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        currentPassword: currentPassword,
+                        newPassword: newPassword
+                    })
+                });
+                
+                if (response.ok) {
+                    // Очищаем форму
+                    document.getElementById('password-form').reset();
+                    
+                    // Показываем уведомление об успешной смене пароля
+                    if (window.authManager) {
+                        window.authManager.showNotification('Пароль успешно изменен');
+                    }
+                } else {
+                    const errorData = await response.json();
+                    errorMessage.textContent = errorData.message || 'Ошибка смены пароля';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Ошибка смены пароля:', error);
+                errorMessage.textContent = 'Ошибка смены пароля. Пожалуйста, попробуйте позже';
+                errorMessage.style.display = 'block';
+            }
+        }
+        
+        // Загрузка истории заказов
+        async function loadOrderHistory() {
+            if (!window.authManager || !window.authManager.isAuthenticated()) {
+                return;
+            }
+            
+            try {
+                const token = localStorage.getItem('token');
+                
+                const response = await fetch('/api/profile/orders', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const orders = await response.json();
+                    const orderList = document.getElementById('order-list');
+                    
+                    // Очищаем список заказов
+                    orderList.innerHTML = '';
+                    
+                    if (orders.length === 0) {
+                        orderList.innerHTML = '<div class="empty-orders">У вас пока нет заказов</div>';
+                        return;
+                    }
+                    
+                    // Добавляем заказы в список
+                    orders.forEach(order => {
+                        const orderDate = new Date(order.orderDate).toLocaleDateString('ru-RU');
+                        const orderItem = document.createElement('div');
+                        orderItem.className = 'order-item';
+                        
+                        // Определяем класс статуса
+                        let statusClass = '';
+                        switch (order.status.toLowerCase()) {
+                            case 'completed':
+                                statusClass = 'completed';
+                                break;
+                            case 'processing':
+                                statusClass = 'processing';
+                                break;
+                            default:
+                                statusClass = '';
+                        }
+                        
+                        orderItem.innerHTML = `
+                            <div class="order-header">
+                                <div class="order-number">Заказ #${order.id}</div>
+                                <div class="order-date">${orderDate}</div>
+                                <div class="order-status ${statusClass}">${order.status}</div>
+                            </div>
+                            <div class="order-details">
+                                <div class="order-products">
+                                    ${order.items.map(item => `
+                                        <div class="order-product">
+                                            <div class="order-product-name">${item.productName}</div>
+                                            <div class="order-product-size">${item.size}</div>
+                                            <div class="order-product-quantity">x${item.quantity}</div>
+                                            <div class="order-product-price">${item.price * item.quantity} ₽</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="order-total">Итого: ${order.totalAmount} ₽</div>
+                            </div>
+                        `;
+                        
+                        // Добавляем обработчик клика для раскрытия деталей заказа
+                        const orderHeader = orderItem.querySelector('.order-header');
+                        const orderDetails = orderItem.querySelector('.order-details');
+                        
+                        orderHeader.addEventListener('click', function() {
+                            orderDetails.classList.toggle('show');
+                        });
+                        
+                        orderList.appendChild(orderItem);
+                    });
+                } else {
+                    console.error('Ошибка загрузки истории заказов:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки истории заказов:', error);
+            }
+        }
+    </script>
+</body>
+</html> 
